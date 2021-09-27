@@ -14,10 +14,6 @@ import SwiftUIPlus
 //
 //  Created by Alex Nagy on 11.03.2021.
 //
-
-import SwiftUI
-import SwiftUIPlus
-
 struct ContentView: View {
     
     // MARK: - View Model
@@ -59,9 +55,9 @@ extension ContentView {
         ZStack {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    CardView(cardModel: CardModel(title: "Camera".localized, destination: CameraView().anyView()))
-                    .accessibility(addTraits: .isButton)
-                    .accessibility(identifier: "ContentView_CameraButton")
+                    CardView(cardModel: CardModel(title: "Camera".localized, destination: CameraView(pictureTakenCount: 0, fileURL: URL(fileURLWithPath: "")).anyView()))
+                        .accessibility(addTraits: .isButton)
+                        .accessibility(identifier: "ContentView_CameraButton")
                 }
             }
             .padding()

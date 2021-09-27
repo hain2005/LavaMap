@@ -29,7 +29,7 @@
 		C2BA07872700AEF200CCF248 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA07862700AEF200CCF248 /* PreviewView.swift */; };
 		C2BA07892700B13400CCF248 /* TapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA07882700B13400CCF248 /* TapticGenerator.swift */; };
 		C2BA078B2700B1E200CCF248 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA078A2700B1E200CCF248 /* Helpers.swift */; };
-		C2C1984226FEC83200593B20 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1984126FEC83200593B20 /* Camera.swift */; };
+		C2C1984226FEC83200593B20 /* CameraControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1984126FEC83200593B20 /* CameraControllerRepresentable.swift */; };
 		C2C1984426FEC84700593B20 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1984326FEC84700593B20 /* CameraView.swift */; };
 		D2DF9ADE74A5D4468BA34F54 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726A29BE3E87C0F443127965 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework */; };
 		E4F6CFB85047C62F6C362A5F /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03_ID3D_iOS_mid_level_SwiftUI_Test_03UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F67A8570465E56C5193F6AB /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03_ID3D_iOS_mid_level_SwiftUI_Test_03UITests.framework */; };
@@ -87,7 +87,7 @@
 		C2BA07862700AEF200CCF248 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = camera/camera/Views/PreviewView.swift; sourceTree = "<group>"; };
 		C2BA07882700B13400CCF248 /* TapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TapticGenerator.swift; path = camera/camera/Helpers/TapticGenerator.swift; sourceTree = "<group>"; };
 		C2BA078A2700B1E200CCF248 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = camera/camera/Helpers/Helpers.swift; sourceTree = "<group>"; };
-		C2C1984126FEC83200593B20 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		C2C1984126FEC83200593B20 /* CameraControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerRepresentable.swift; sourceTree = "<group>"; };
 		C2C1984326FEC84700593B20 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C2C1985826FED8FC00593B20 /* camera */ = {isa = PBXFileReference; lastKnownFileType = folder; name = camera; path = camera/camera; sourceTree = "<group>"; };
 		E52D68E7381A24BC4B9E6665 /* Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig"; path = "Target Support Files/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 			children = (
 				019CB24226588A6800936B32 /* CardModel.swift */,
 				019CB24826588D8600936B32 /* Navigation.swift */,
-				C2C1984126FEC83200593B20 /* Camera.swift */,
+				C2C1984126FEC83200593B20 /* CameraControllerRepresentable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 				019CB24926588D8600936B32 /* Navigation.swift in Sources */,
 				011F51B9264F7F74008F5CB3 /* ContentView.swift in Sources */,
 				011F51B7264F7F74008F5CB3 /* ID3D_iOS_mid_level_SwiftUI_Test_03App.swift in Sources */,
-				C2C1984226FEC83200593B20 /* Camera.swift in Sources */,
+				C2C1984226FEC83200593B20 /* CameraControllerRepresentable.swift in Sources */,
 				C2C1984426FEC84700593B20 /* CameraView.swift in Sources */,
 				019CB23E2658887100936B32 /* CardView.swift in Sources */,
 				019CB24326588A6800936B32 /* CardModel.swift in Sources */,
