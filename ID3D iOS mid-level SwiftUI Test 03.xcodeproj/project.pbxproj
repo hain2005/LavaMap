@@ -23,6 +23,7 @@
 		019CB30B2658E54300936B32 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 019CB30A2658E54300936B32 /* SnapKit */; };
 		019CB455265B12AE00936B32 /* ArchiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CB454265B12AE00936B32 /* ArchiveManager.swift */; };
 		5A57F15FEEE2DA5A9F342A49 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5893E8041543865D93D639B5 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03Tests.framework */; };
+		C2A9F8952702A7A000B0D4B3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9F8942702A7A000B0D4B3 /* HistoryView.swift */; };
 		C2BA07802700AB8100CCF248 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA077F2700AB8100CCF248 /* StorageManager.swift */; };
 		C2BA07832700ABF100CCF248 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = C2BA07812700ABF100CCF248 /* Main.storyboard */; };
 		C2BA07852700AEBA00CCF248 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA07842700AEBA00CCF248 /* CameraController.swift */; };
@@ -31,6 +32,8 @@
 		C2BA078B2700B1E200CCF248 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA078A2700B1E200CCF248 /* Helpers.swift */; };
 		C2C1984226FEC83200593B20 /* CameraControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1984126FEC83200593B20 /* CameraControllerRepresentable.swift */; };
 		C2C1984426FEC84700593B20 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C1984326FEC84700593B20 /* CameraView.swift */; };
+		C2E956B427089D7600D44A5E /* ShowPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E956B327089D7600D44A5E /* ShowPictureView.swift */; };
+		C2E956B62708B57200D44A5E /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E956B52708B57200D44A5E /* ImageViewModel.swift */; };
 		D2DF9ADE74A5D4468BA34F54 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726A29BE3E87C0F443127965 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework */; };
 		E4F6CFB85047C62F6C362A5F /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03_ID3D_iOS_mid_level_SwiftUI_Test_03UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F67A8570465E56C5193F6AB /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03_ID3D_iOS_mid_level_SwiftUI_Test_03UITests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +84,7 @@
 		726A29BE3E87C0F443127965 /* Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ID3D_iOS_mid_level_SwiftUI_Test_03.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820955C110F2E12CF48CAE76 /* Pods-ID3D iOS mid-level SwiftUI Test 03Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID3D iOS mid-level SwiftUI Test 03Tests.debug.xcconfig"; path = "Target Support Files/Pods-ID3D iOS mid-level SwiftUI Test 03Tests/Pods-ID3D iOS mid-level SwiftUI Test 03Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		943865088BFA483046EBE71F /* Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.debug.xcconfig"; path = "Target Support Files/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2A9F8942702A7A000B0D4B3 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C2BA077F2700AB8100CCF248 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageManager.swift; path = camera/camera/Helpers/StorageManager.swift; sourceTree = "<group>"; };
 		C2BA07822700ABF100CCF248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = camera/camera/Views/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2BA07842700AEBA00CCF248 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraController.swift; path = camera/camera/Controllers/CameraController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		C2C1984126FEC83200593B20 /* CameraControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerRepresentable.swift; sourceTree = "<group>"; };
 		C2C1984326FEC84700593B20 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C2C1985826FED8FC00593B20 /* camera */ = {isa = PBXFileReference; lastKnownFileType = folder; name = camera; path = camera/camera; sourceTree = "<group>"; };
+		C2E956B327089D7600D44A5E /* ShowPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPictureView.swift; sourceTree = "<group>"; };
+		C2E956B52708B57200D44A5E /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		E52D68E7381A24BC4B9E6665 /* Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig"; path = "Target Support Files/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests/Pods-ID3D iOS mid-level SwiftUI Test 03-ID3D iOS mid-level SwiftUI Test 03UITests.release.xcconfig"; sourceTree = "<group>"; };
 		F442359BE9AEBD27A29187B5 /* Pods-ID3D iOS mid-level SwiftUI Test 03Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID3D iOS mid-level SwiftUI Test 03Tests.release.xcconfig"; path = "Target Support Files/Pods-ID3D iOS mid-level SwiftUI Test 03Tests/Pods-ID3D iOS mid-level SwiftUI Test 03Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +162,7 @@
 		011F51B5264F7F74008F5CB3 /* ID3D iOS mid-level SwiftUI Test 03 */ = {
 			isa = PBXGroup;
 			children = (
+				C2E956B72708B5A400D44A5E /* ViewModels */,
 				019CB453265B129200936B32 /* Helpers */,
 				019CB26A2658DF9400936B32 /* Localizable.strings */,
 				019CB2522658BABF00936B32 /* CoreData */,
@@ -193,6 +200,8 @@
 				019CB23D2658887100936B32 /* CardView.swift */,
 				011F51B8264F7F74008F5CB3 /* ContentView.swift */,
 				C2C1984326FEC84700593B20 /* CameraView.swift */,
+				C2A9F8942702A7A000B0D4B3 /* HistoryView.swift */,
+				C2E956B327089D7600D44A5E /* ShowPictureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +232,14 @@
 				019CB454265B12AE00936B32 /* ArchiveManager.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C2E956B72708B5A400D44A5E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C2E956B52708B57200D44A5E /* ImageViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E1393BC47B9EC382A8B099ED /* Pods */ = {
@@ -495,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E956B427089D7600D44A5E /* ShowPictureView.swift in Sources */,
 				C2BA078B2700B1E200CCF248 /* Helpers.swift in Sources */,
 				C2BA07892700B13400CCF248 /* TapticGenerator.swift in Sources */,
 				C2BA07872700AEF200CCF248 /* PreviewView.swift in Sources */,
@@ -510,6 +528,8 @@
 				C2C1984426FEC84700593B20 /* CameraView.swift in Sources */,
 				019CB23E2658887100936B32 /* CardView.swift in Sources */,
 				019CB24326588A6800936B32 /* CardModel.swift in Sources */,
+				C2A9F8952702A7A000B0D4B3 /* HistoryView.swift in Sources */,
+				C2E956B62708B57200D44A5E /* ImageViewModel.swift in Sources */,
 				019CB455265B12AE00936B32 /* ArchiveManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

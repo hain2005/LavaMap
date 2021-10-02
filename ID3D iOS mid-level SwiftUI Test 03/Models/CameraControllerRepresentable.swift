@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 import SwiftUI
 import camera
+import CoreData
 
 struct CameraControllerRepresentable: UIViewControllerRepresentable {
     
     @Binding var pictureTakenCount: Int
     @Binding var fileURL: URL
-    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    var imageViewModel = ImageViewModel()
     
     class Coordinator: NSObject, CameraControllerDelegate {
 
@@ -27,7 +29,7 @@ struct CameraControllerRepresentable: UIViewControllerRepresentable {
         func pictureTaken(url: URL) {
             parent.pictureTakenCount +=  1
             parent.fileURL = url
-            parent.saveToCoreData(captureIndex: Int16(parent.pictureTakenCount), url: url)
+            parent.imageViewModel.saveToCoreData(captureIndex: Int16(parent.pictureTakenCount), url: url)
         }
     }
 
@@ -44,21 +46,5 @@ struct CameraControllerRepresentable: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-    }
-    
-    func saveToCoreData(captureIndex: Int16, url: URL) {
-        let picture = Capture(context: managedObjectContext)
-        let uuid = UUID()
-        picture.captureIndex = captureIndex
-        picture.id = uuid
-        picture.sessionId = uuid
-        picture.timestamp = Date()
-        picture.url = url
-        
-        do {
-          try managedObjectContext.save()
-        } catch {
-          print("Error saving managed object context: \(error)")
-        }
     }
 }

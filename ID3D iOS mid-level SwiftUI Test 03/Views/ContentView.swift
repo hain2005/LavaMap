@@ -20,9 +20,9 @@ struct ContentView: View {
     
     // MARK: - Environments
     @Environment(\.presentationMode) private var presentationMode
-    
+
     // MARK: - EnvironmentObjects
-    
+
     // MARK: - StateObjects
     @StateObject private var alertManager = AlertManager()
     @StateObject private var progressHUDManager = ProgressHUDManager()
@@ -35,6 +35,8 @@ struct ContentView: View {
     
     // MARK: - Bindings
     
+    private var view: [String] = ["Camera","History"]
+    
     // MARK: - Body
     var body: some View {
         ViewBody {
@@ -46,6 +48,7 @@ struct ContentView: View {
             
             navigationLinks()
         }
+        .background(Color.appBackground)
     }
 }
 
@@ -58,9 +61,13 @@ extension ContentView {
                     CardView(cardModel: CardModel(title: "Camera".localized, destination: CameraView(pictureTakenCount: 0, fileURL: URL(fileURLWithPath: "")).anyView()))
                         .accessibility(addTraits: .isButton)
                         .accessibility(identifier: "ContentView_CameraButton")
+                        .padding(.bottom, 5)
+                    CardView(cardModel: CardModel(title: "History".localized, destination: HistoryView().anyView()))
+                            .accessibility(addTraits: .isButton)
+                            .accessibility(identifier: "ContentView_HistoryButton")
+
                 }
             }
-            .padding()
         }
     }
 }

@@ -46,9 +46,9 @@ extension CardView {
     func content() -> some View {
         
         ZStack {
-            NavigationStep(style: .view, type: .push) {
-                cardModel.destination
-            } label: {
+            
+            // Use simple navigation/destimation for now
+            NavigationLink(destination: cardModel.destination) {
                 ZStack {
                     Color.appBackgroundTertiary.cornerRadius(10).shadow(radius: 5)
                     VStack {
@@ -59,7 +59,24 @@ extension CardView {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(1, contentMode: .fill)
                 }
+
             }
+            
+            // Commented out, SwiftUIPlus package caused a dismissed on push
+//            NavigationStep(style: .view, type: .push) {
+//                cardModel.destination
+//            } label: {
+//                ZStack {
+//                    Color.appBackgroundTertiary.cornerRadius(10).shadow(radius: 5)
+//                    VStack {
+//                        Text(cardModel.title)
+//                            .accessibility(identifier: "cardModel.title")
+//                            .foregroundColor(.appLabel)
+//                    }
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                    .aspectRatio(1, contentMode: .fill)
+//                }
+//            }
         }
         .padding(20)
     }

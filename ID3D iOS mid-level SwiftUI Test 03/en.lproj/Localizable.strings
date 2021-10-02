@@ -4,3 +4,10 @@
 
 // Home view
 "Camera" = "Camera";
+"History" = "History";
+"Verify" = "Verify";
+"Session is completed." = "Session is completed.";
+"Compress Last Session" = "Compress Last Session";
+"Compressing …" = "Compressing …";
+"Compression is completed." = "Compression is completed.";
+"Compression failed, please try again." = "Compression failed, please try again.";

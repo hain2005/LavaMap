@@ -15,29 +15,42 @@ class ProgressItem: ObservableObject {
 
 struct CameraView: View {
     
+    // MARK: - Environments
     @Environment(\.presentationMode) var presentationMode
+
+    // MARK: - States
     @State var pictureTakenCount: Int = 0
     @State var fileURL: URL
-    let maxPicturesAllow = Int.random(in: 3...8)
     @State private var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     @State private var isCompression: Bool = false
-    @State private var fileCompressed: Float = 0.0
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @ObservedObject var progress = ProgressItem()
-    
     @State private var subscription: AnyCancellable?
 
+    // MARK: - ObservedObject
+    @ObservedObject var progress = ProgressItem()
+    
+    // MARK: - Bindings
+    let maxPicturesAllow = Int.random(in: 3...8)
+
+    // MARK: - Body
     var body: some View {
         VStack {
             if pictureTakenCount == maxPicturesAllow {
-                Text("Session is completed.")
+                Text("Session is completed.".localized)
                     .padding(.bottom, 5)
             } else {
-                Text("Picture(s) taken: \(pictureTakenCount) \n (max \(maxPicturesAllow) pictures)")
-                    .padding(.bottom, 5)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
+                VStack {
+                    Text("Picture(s) taken: %@".localized(with: String(pictureTakenCount)))
+                    Text("(max %@ pictures)".localized(with: String(maxPicturesAllow)))
+                }
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 5)
+                if pictureTakenCount > 0 {
+                    NavigationLink(destination: ShowPictureView(pictureURL: fileURL)) {
+                        Text("Verify".localized)
+                    }
+                }
             }
             CameraControllerRepresentable(pictureTakenCount: $pictureTakenCount, fileURL: $fileURL)
                     .scaledToFill()
@@ -70,9 +83,9 @@ struct CameraView: View {
                     }
                 }
                 .padding(.top, 5)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.appLabel)
                 .frame(width: 250, height: 50)
-                .background(Color.blue)
+                .background(Color.appButtonBackground)
                 .font(.system(size: 20))
                 .cornerRadius(5)
                 .alert(isPresented: $showAlert) { () -> Alert in
@@ -101,6 +114,7 @@ struct CameraView: View {
                     }
                 }
         }
+        .padding(0)
      }
 }
 
