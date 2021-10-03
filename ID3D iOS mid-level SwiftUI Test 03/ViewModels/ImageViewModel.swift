@@ -10,13 +10,37 @@ import UIKit
 import SwiftUI
 import CoreData
 
-class ImageViewModel : ObservableObject {
+public enum CoreDataError: Error {
+    case success
+    case failedSaved
+    case failedFetched
+}
+
+extension CoreDataError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .success:
+            return "Image saved.".localized
+        case .failedSaved:
+            return "Image failed to save.".localized
+        case .failedFetched:
+            return "Failed to retrieve images".localized
+        }
+    }
+}
+
+public protocol ImageCoreData {
+    func save(captureIndex: Int16, url: URL, completionHandler: @escaping (Result<Void,CoreDataError>) -> Void)
+    func fetch(completionHandler: @escaping (Result<[UIImage],CoreDataError>) -> Void)
+}
+
+class ImageViewModel : ObservableObject, ImageCoreData {
     
-    @Published var images = [NSManagedObject]() //[UIImage]()
+    @Published var images = [UIImage]()
         
     let managedObjectContext = PersistenceController.shared.container.viewContext
-
-    func saveToCoreData(captureIndex: Int16, url: URL) {
+    func save(captureIndex: Int16, url: URL, completionHandler: @escaping (Result<Void, CoreDataError>) -> Void) {
+        
         let picture = Capture(context: managedObjectContext)
         let uuid = UUID()
         picture.captureIndex = captureIndex
@@ -25,14 +49,25 @@ class ImageViewModel : ObservableObject {
         picture.timestamp = Date()
         picture.url = url
         
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error saving managed object context: \(error.localizedDescription)")
+        if localFileExists(url: url) {
+            do {
+                try managedObjectContext.save()
+                completionHandler(.success(()))
+            } catch {
+                completionHandler(.failure(.failedSaved))
+            }
+        } else {
+            completionHandler(.failure(.failedSaved))
         }
     }
     
-    func fetchImages(){
+    func localFileExists(url: URL) -> Bool {
+        let filePath = url.path
+        let fileManager = FileManager.default
+        return fileManager.fileExists(atPath: filePath)
+    }
+    
+    func fetch(completionHandler: @escaping (Result<[UIImage], CoreDataError>) -> Void) {
  
         images.removeAll()
         
@@ -49,9 +84,18 @@ class ImageViewModel : ObservableObject {
             if let records = records as? [NSManagedObject] {
                 result = records
             }
-            self.images = result
+            
+            for object in result {
+                let url = object.value(forKey: "url") as! URL
+                if let imageData = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: imageData) {
+                        images.append(image)
+                    }
+                }
+            }
+            completionHandler(.success(images))
         } catch {
-            print("Unable to fetch managed objects")
+            completionHandler(.failure(.failedFetched))
         }
 
     }

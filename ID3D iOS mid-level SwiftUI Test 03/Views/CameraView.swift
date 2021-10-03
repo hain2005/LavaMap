@@ -39,10 +39,18 @@ struct CameraView: View {
             if pictureTakenCount == maxPicturesAllow {
                 Text("Session is completed.".localized)
                     .padding(.bottom, 5)
+                    .accessibility(addTraits: .isStaticText)
+                    .accessibility(identifier: "SessionCompletedLabel")
             } else {
                 VStack {
                     Text("Picture(s) taken: %@".localized(with: String(pictureTakenCount)))
-                    Text("(max %@ pictures)".localized(with: String(maxPicturesAllow)))
+                    HStack{
+                    Text("Max pictures allow: ".localized)
+                        .padding(.trailing, 10)
+                    Text(String(maxPicturesAllow))
+                        .accessibility(addTraits: .isStaticText)
+                        .accessibility(identifier: "MaximumPicturesAllow")
+                    }
                 }
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 5)
@@ -83,14 +91,14 @@ struct CameraView: View {
                     }
                 }
                 .padding(.top, 5)
-                .foregroundColor(Color.appLabel)
+                .foregroundColor(Color.white)
                 .frame(width: 250, height: 50)
                 .background(Color.appButtonBackground)
                 .font(.system(size: 20))
                 .cornerRadius(5)
                 .alert(isPresented: $showAlert) { () -> Alert in
                     Alert(title: Text(alertMessage),dismissButton: Alert.Button.default(
-                        Text("OK"), action: { presentationMode.wrappedValue.dismiss()}
+                        Text("OK".localized), action: { presentationMode.wrappedValue.dismiss()}
                     ))
                 }
             }

@@ -27,9 +27,15 @@ struct CameraControllerRepresentable: UIViewControllerRepresentable {
         }
         
         func pictureTaken(url: URL) {
-            parent.pictureTakenCount +=  1
             parent.fileURL = url
-            parent.imageViewModel.saveToCoreData(captureIndex: Int16(parent.pictureTakenCount), url: url)
+            parent.imageViewModel.save(captureIndex: Int16(parent.pictureTakenCount), url: url) { result in
+                switch result {
+                case .success():
+                    self.parent.pictureTakenCount +=  1
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 

@@ -11,31 +11,53 @@ import UIKit
 
 struct HistoryView: View {
         
+    // MARK: - Environments
+    @Environment(\.presentationMode) var presentationMode
+
     // MARK: - States
-    @State private var lists: [NSManagedObject]?
-    
+    @State private var fetched = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
     // MARK: - ObservedObject
     @ObservedObject var viewModel = ImageViewModel()
 
     // MARK: - Body
     var body: some View {
-        
-        List {
-            ForEach(viewModel.images, id: \.self) { object in
-                let url = object.value(forKey: "url") as! URL
-                if let imageData = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: imageData) {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                    }
+        VStack {
+            Text("History")
+                .accessibility(addTraits: .isStaticText)
+                .accessibility(identifier: "HistoryLabel")
+                .padding(.bottom, 5)
+            List {
+                ForEach(viewModel.images, id: \.self) { image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                }
+                .alert(isPresented: $showAlert) { () -> Alert in
+                    Alert(title: Text(alertMessage),dismissButton: Alert.Button.default(
+                        Text("OK".localized), action: { presentationMode.wrappedValue.dismiss()}
+                    ))
                 }
             }
-       }
-        .onAppear() {
-            viewModel.fetchImages()
+            .onAppear() {
+                viewModel.fetch { result in
+                    switch result {
+                    case .success( _):
+                        fetched.toggle()
+                    case .failure(let error):
+                        self.showAlert = true
+                        if let errorMessasge = error.errorDescription {
+                            alertMessage = errorMessasge
+                        }
+                    }
+
+                }
+            }
+            .padding(0)
         }
-     }
+    }
 }
 
 struct HistoryView_Previews: PreviewProvider {
